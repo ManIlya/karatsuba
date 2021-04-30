@@ -2,12 +2,17 @@ package ru.vsu.cs.manukovsky;
 
 import java.math.*;
 import java.io.*;
+import java.util.Random;
+
 public class Main{
     public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BigInteger A = new BigInteger(br.readLine().trim());
-        BigInteger B = new BigInteger(br.readLine().trim());
-        System.out.printf((karMult(A, B)).toString());
+        Random random = new Random();
+        BigInteger a = new BigInteger(64, random);
+        BigInteger b = new BigInteger(64, random);
+        BigInteger c = karMult(a, b);
+        BigInteger d = a.multiply(b);
+
+        System.out.println((c.equals(d)));
     }
     public static BigInteger karMult(BigInteger x, BigInteger y) {
         int N = Math.max(x.bitLength(), y.bitLength());
